@@ -16,14 +16,12 @@
         Main();
     }
     function Update() {
-        helloLabel.rotation += 5;
+        // helloLabel.rotation += 5;
         stage.update(); // redraws the stage
     }
     function Main() {
         console.log("Game Start...");
-        helloLabel = new createjs.Text("Hello World", "40px Consolate", "#000000");
-        helloLabel.x = 100;
-        helloLabel.y = 100;
+        helloLabel = new objects.Label("Hello World Carlos Zabaleta Copa", "40px", "Consolate", "#000000", 320, 240, true);
         stage.addChild(helloLabel);
     }
     window.onload = Init;
