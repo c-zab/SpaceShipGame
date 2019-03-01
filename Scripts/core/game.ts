@@ -17,20 +17,22 @@
     // Initialize CreateJS
 
     stage = new createjs.Stage(canvas);
-    createjs.Ticker.framerate = 60;
-    createjs.Ticker.on("tick", Update);
+    createjs.Ticker.framerate = 60; // FPS
+    createjs.Ticker.on("tick", Update); // tick is a frame, every time the tick changes it calls the Update function
     Main();
   }
 
   function Update(): void {
     helloLabel.rotation += 5;
-    stage.update();
+    stage.update(); // redraws the stage
   }
 
   function Main(): void {
     console.log("Game Start...");
 
     helloLabel = new createjs.Text("Hello World", "40px Consolate", "#000000");
+    helloLabel.x = 100;
+    helloLabel.y = 100;
 
     stage.addChild(helloLabel);
   }
