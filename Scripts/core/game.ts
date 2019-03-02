@@ -8,10 +8,17 @@
   let helloLabel: objects.Label;
   let clickbutton: objects.Button;
 
+  let assetsManager: createjs.LoadQueue;
+  let assetsManifest: any[];
+
+  assetsManifest = [{ id: "startButton", src: "/Assets/images/button.png" }];
+
   function Init(): void {
     console.log("Initialization start");
-
-    Start();
+    assetsManager = new createjs.LoadQueue();
+    assetsManager.installPlugin(createjs.Sound);
+    assetsManager.loadManifest(assetsManifest);
+    assetsManager.on("complete", Start, this);
   }
 
   function Start(): void {
@@ -43,9 +50,7 @@
     );
     stage.addChild(helloLabel);
 
-    clickbutton = new objects.Button("/Assets/images/button.png", 320, 340);
-    clickbutton.regX = clickbutton.getBounds().width * 0.5;
-    clickbutton.regY = clickbutton.getBounds().height * 0.5;
+    clickbutton = new objects.Button(assetsManager, "startButton", 320, 340);
 
     clickbutton.on("mousedown", mouseClickButton);
 

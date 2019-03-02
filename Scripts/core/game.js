@@ -5,9 +5,15 @@
     var stage;
     var helloLabel;
     var clickbutton;
+    var assetsManager;
+    var assetsManifest;
+    assetsManifest = [{ id: "startButton", src: "/Assets/images/button.png" }];
     function Init() {
         console.log("Initialization start");
-        Start();
+        assetsManager = new createjs.LoadQueue();
+        assetsManager.installPlugin(createjs.Sound);
+        assetsManager.loadManifest(assetsManifest);
+        assetsManager.on("complete", Start, this);
     }
     function Start() {
         console.log("Starting Application...");
@@ -25,9 +31,7 @@
         console.log("Game Start...");
         helloLabel = new objects.Label("Hello World Carlos Zabaleta Copa", "40px", "Consolate", "#000000", 320, 240, true);
         stage.addChild(helloLabel);
-        clickbutton = new objects.Button("/Assets/images/button.png", 320, 340);
-        clickbutton.regX = clickbutton.getBounds().width * 0.5;
-        clickbutton.regY = clickbutton.getBounds().height * 0.5;
+        clickbutton = new objects.Button(assetsManager, "startButton", 320, 340);
         clickbutton.on("mousedown", mouseClickButton);
         stage.addChild(clickbutton);
     }
