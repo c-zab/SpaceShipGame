@@ -1,3 +1,4 @@
+/// <reference path="_references.ts" />
 (function () {
     // Global variables
     var canvas = document.getElementById("canvas");
