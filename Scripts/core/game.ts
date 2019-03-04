@@ -3,12 +3,13 @@
 (function() {
   // Global variables
   let canvas = document.getElementById("canvas");
-
   let stage: createjs.Stage;
 
   let assetsManager: createjs.LoadQueue;
   let assetsManifest: any[];
-  let currentScene: number;
+
+  let currentScene: objects.Scene;
+  let currentState: number;
 
   assetsManifest = [{ id: "startButton", src: "/Assets/images/button.png" }];
 
@@ -30,18 +31,28 @@
     createjs.Ticker.framerate = 60; // FPS
     createjs.Ticker.on("tick", Update); // tick is a frame, every time the tick changes it calls the Update function
 
-    currentScene = config.Scene.START;
+    objects.Game.currentScene = config.Scene.START;
+    currentState = config.Scene.START;
     Main();
   }
 
   function Update(): void {
+    if (currentState != objects.Game.currentScene) {
+      Main();
+    }
+
+    currentScene.Update();
+
     stage.update(); // redraws the stage
   }
 
   function Main(): void {
-    switch (currentScene) {
+    switch (objects.Game.currentScene) {
       case config.Scene.START:
         console.log("Game Start...");
+        stage.removeAllChildren();
+        currentScene = new scenes.StartScene(assetsManager);
+        stage.addChild(currentScene);
         break;
       case config.Scene.PLAY:
         break;
