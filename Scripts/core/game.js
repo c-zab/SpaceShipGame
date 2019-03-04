@@ -7,7 +7,12 @@
     var assetsManifest;
     var currentScene;
     var currentState;
-    assetsManifest = [{ id: "startButton", src: "/Assets/images/button.png" }];
+    assetsManifest = [
+        { id: "startButton", src: "/Assets/images/button.png" },
+        { id: "playButton", src: "/Assets/images/PlayButton.png" },
+        { id: "backButton", src: "/Assets/images/BackButton.png" },
+        { id: "nextButton", src: "/Assets/images/NextButton.png" }
+    ];
     function Init() {
         console.log("Initialization start...");
         assetsManager = new createjs.LoadQueue();
@@ -28,24 +33,30 @@
     }
     function Update() {
         if (currentState != objects.Game.currentScene) {
+            console.log(objects.Game.currentScene);
             Main();
         }
         currentScene.Update();
         stage.update(); // redraws the stage
     }
     function Main() {
+        stage.removeAllChildren();
         switch (objects.Game.currentScene) {
             case config.Scene.START:
                 console.log("Game Start...");
-                stage.removeAllChildren();
                 currentScene = new scenes.StartScene(assetsManager);
-                stage.addChild(currentScene);
                 break;
             case config.Scene.PLAY:
+                console.log("Game Play...");
+                currentScene = new scenes.PlayScene(assetsManager);
                 break;
             case config.Scene.OVER:
+                console.log("Game Over...");
+                // currentScene = new scenes.StartScene(assetsManager);
                 break;
         }
+        currentState = objects.Game.currentScene;
+        stage.addChild(currentScene);
     }
     window.onload = Init;
 })();
