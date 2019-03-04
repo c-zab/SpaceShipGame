@@ -30,7 +30,7 @@ var scenes;
             objects.Game.currentScene = config.Scene.START;
         };
         PlayScene.prototype._nextButtonClick = function () {
-            // objects.Game.currentScene = config.Scene.OVER;
+            objects.Game.currentScene = config.Scene.OVER;
         };
         // Public Methods
         PlayScene.prototype.Start = function () {

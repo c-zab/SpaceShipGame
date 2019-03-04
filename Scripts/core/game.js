@@ -11,7 +11,8 @@
         { id: "startButton", src: "/Assets/images/button.png" },
         { id: "playButton", src: "/Assets/images/PlayButton.png" },
         { id: "backButton", src: "/Assets/images/BackButton.png" },
-        { id: "nextButton", src: "/Assets/images/NextButton.png" }
+        { id: "nextButton", src: "/Assets/images/NextButton.png" },
+        { id: "restartButton", src: "/Assets/images/QuitButton.png" }
     ];
     function Init() {
         console.log("Initialization start...");
@@ -52,7 +53,7 @@
                 break;
             case config.Scene.OVER:
                 console.log("Game Over...");
-                // currentScene = new scenes.StartScene(assetsManager);
+                currentScene = new scenes.OverScene(assetsManager);
                 break;
         }
         currentState = objects.Game.currentScene;

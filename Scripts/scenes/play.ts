@@ -22,7 +22,7 @@ module scenes {
     }
 
     private _nextButtonClick(): void {
-      // objects.Game.currentScene = config.Scene.OVER;
+      objects.Game.currentScene = config.Scene.OVER;
     }
 
     // Public Methods

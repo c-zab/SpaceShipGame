@@ -5,4 +5,5 @@
 /// <reference path="../objects/Scene.ts" />
 /// <reference path="../scenes/start.ts" />
 /// <reference path="../scenes/play.ts" />
+/// <reference path="../scenes/over.ts" />
 //# sourceMappingURL=_references.js.map
