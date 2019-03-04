@@ -5,16 +5,16 @@
   let canvas = document.getElementById("canvas");
 
   let stage: createjs.Stage;
-  let helloLabel: objects.Label;
-  let clickbutton: objects.Button;
 
   let assetsManager: createjs.LoadQueue;
   let assetsManifest: any[];
+  let currentScene: number;
 
   assetsManifest = [{ id: "startButton", src: "/Assets/images/button.png" }];
 
   function Init(): void {
-    console.log("Initialization start");
+    console.log("Initialization start...");
+
     assetsManager = new createjs.LoadQueue();
     assetsManager.installPlugin(createjs.Sound);
     assetsManager.loadManifest(assetsManifest);
@@ -29,6 +29,8 @@
     stage.enableMouseOver(20);
     createjs.Ticker.framerate = 60; // FPS
     createjs.Ticker.on("tick", Update); // tick is a frame, every time the tick changes it calls the Update function
+
+    currentScene = config.Scene.START;
     Main();
   }
 
@@ -37,30 +39,15 @@
   }
 
   function Main(): void {
-    console.log("Game Start...");
-
-    helloLabel = new objects.Label(
-      "Hello World Carlos Zabaleta Copa",
-      "40px",
-      "Consolate",
-      "#000000",
-      320,
-      240,
-      true
-    );
-    stage.addChild(helloLabel);
-
-    clickbutton = new objects.Button(assetsManager, "startButton", 320, 340);
-
-    clickbutton.on("mousedown", mouseClickButton);
-
-    stage.addChild(clickbutton);
-  }
-
-  function mouseClickButton(): void {
-    helloLabel.text = "Clicked";
-    helloLabel.regX = helloLabel.getMeasuredWidth() * 0.5;
-    helloLabel.regY = helloLabel.getMeasuredHeight() * 0.5;
+    switch (currentScene) {
+      case config.Scene.START:
+        console.log("Game Start...");
+        break;
+      case config.Scene.PLAY:
+        break;
+      case config.Scene.OVER:
+        break;
+    }
   }
 
   window.onload = Init;
