@@ -37,10 +37,14 @@ var scenes;
             this._playButton = new objects.Button(this.assetManager, "playButton", 320, 340);
             this._backButton = new objects.Button(this.assetManager, "backButton", 140, 340);
             this._nextButton = new objects.Button(this.assetManager, "nextButton", 500, 340);
+            this._ocean = new objects.Ocean(this.assetManager);
             this.Main();
         };
-        PlayScene.prototype.Update = function () { };
+        PlayScene.prototype.Update = function () {
+            this._ocean.Update();
+        };
         PlayScene.prototype.Main = function () {
+            this.addChild(this._ocean);
             this.addChild(this._playButton);
             this.addChild(this._backButton);
             this.addChild(this._nextButton);
