@@ -38,16 +38,19 @@ var scenes;
             this._backButton = new objects.Button(this.assetManager, "backButton", 140, 340);
             this._nextButton = new objects.Button(this.assetManager, "nextButton", 500, 340);
             this._ocean = new objects.Ocean(this.assetManager);
+            this._plane = new objects.Plane(this.assetManager);
             this.Main();
         };
         PlayScene.prototype.Update = function () {
             this._ocean.Update();
+            this._plane.Update();
         };
         PlayScene.prototype.Main = function () {
             this.addChild(this._ocean);
             this.addChild(this._playButton);
             this.addChild(this._backButton);
             this.addChild(this._nextButton);
+            this.addChild(this._plane);
             this._playButton.on("click", this._playButtonClick);
             this._backButton.on("click", this._backButtonClick);
             this._nextButton.on("click", this._nextButtonClick);

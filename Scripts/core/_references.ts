@@ -7,6 +7,7 @@
 
 /// <reference path="../objects/gameobject.ts" />
 /// <reference path="../objects/ocean.ts" />
+/// <reference path="../objects/Plane.ts" />
 
 /// <reference path="../scenes/start.ts" />
 /// <reference path="../scenes/play.ts" />

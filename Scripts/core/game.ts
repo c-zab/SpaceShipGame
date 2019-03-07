@@ -18,6 +18,7 @@
     { id: "nextButton", src: "/Assets/images/NextButton.png" },
     { id: "restartButton", src: "/Assets/images/QuitButton.png" },
     { id: "ocean", src: "/Assets/images/ocean.gif" }
+    { id: "plane", src: "/Assets/images/plane.png" }
   ];
 
   function Init(): void {
@@ -38,6 +39,7 @@
     createjs.Ticker.framerate = 60; // FPS
     createjs.Ticker.on("tick", Update); // tick is a frame, every time the tick changes it calls the Update function
 
+    objects.Game.stage = stage;
     objects.Game.currentScene = config.Scene.START;
     currentState = config.Scene.START;
     Main();
