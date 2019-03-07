@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Space Ship</title>
-		<link rel="icon" href="./favicon.png">
-		<!-- CSS Section -->
-		<link rel="stylesheet" href="./Content/game.css">
+    <link rel="icon" href="./favicon.png" />
+    <!-- CSS Section -->
+    <link rel="stylesheet" href="./Content/game.css" />
   </head>
-	<body>
-
+  <body>
     <canvas id="canvas" width="640" height="480"> </canvas>
 
     <!--====== Scripts ==========-->
@@ -22,29 +21,35 @@
     <script src="./node_modules/soundjs/lib/soundjs.min.js"></script>
     <script src="./node_modules/tweenjs/lib/tweenjs.min.js"></script>
 
-		<!-- Game Scripts -->
+    <!-- Game Scripts -->
 
-		<!-- Configuration Files -->
-		<script src="./Scripts/config/scene.js"></script>
+    <!-- Configuration Files -->
+    <script src="./Scripts/config/scene.js"></script>
 
-		<!-- Objects -->
-		<script src="./Scripts/objects/game.js"></script>
-		<script src="./Scripts/objects/Label.js"></script>
-		<script src="./Scripts/objects/Button.js"></script>
-		<script src="./Scripts/objects/scene.js"></script>
-		<script src="./Scripts/objects/gameobject.js"></script>
+    <!-- Utility Scripts -->
+    <script src="./Scripts/math/vec2.js"></script>
 
-		<!-- Game Objects -->
-		<script src="./Scripts/objects/ocean.js"></script>
-		<script src="./Scripts/objects/island.js"></script>
-		<script src="./Scripts/objects/Plane.js"></script>
-		<script src="./Scripts/objects/cloud.js"></script>
+    <!-- Objects -->
+    <script src="./Scripts/objects/game.js"></script>
+    <script src="./Scripts/objects/Label.js"></script>
+    <script src="./Scripts/objects/Button.js"></script>
+    <script src="./Scripts/objects/scene.js"></script>
+    <script src="./Scripts/objects/gameobject.js"></script>
 
-		<!-- Scenes -->
-		<script src="./Scripts/scenes/start.js"></script>
-		<script src="./Scripts/scenes/play.js"></script>
-		<script src="./Scripts/scenes/over.js"></script>
+    <!-- Managers -->
+    <script src="/Scripts/managers/collision.js"></script>
 
-		<script src="./Scripts/core/game.js"></script>
+    <!-- Game Objects -->
+    <script src="./Scripts/objects/ocean.js"></script>
+    <script src="./Scripts/objects/island.js"></script>
+    <script src="./Scripts/objects/Plane.js"></script>
+    <script src="./Scripts/objects/cloud.js"></script>
+
+    <!-- Scenes -->
+    <script src="./Scripts/scenes/start.js"></script>
+    <script src="./Scripts/scenes/play.js"></script>
+    <script src="./Scripts/scenes/over.js"></script>
+
+    <script src="./Scripts/core/game.js"></script>
   </body>
 </html>
