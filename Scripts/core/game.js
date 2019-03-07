@@ -14,7 +14,8 @@
         { id: "nextButton", src: "/Assets/images/NextButton.png" },
         { id: "restartButton", src: "/Assets/images/QuitButton.png" },
         { id: "ocean", src: "/Assets/images/ocean.gif" },
-        { id: "plane", src: "/Assets/images/plane.png" }
+        { id: "plane", src: "/Assets/images/plane.png" },
+        { id: "island", src: "/Assets/images/island.png" }
     ];
     function Init() {
         console.log("Initialization start...");

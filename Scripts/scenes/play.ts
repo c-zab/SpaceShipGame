@@ -7,6 +7,7 @@ module scenes {
 
     private _ocean: objects.Ocean;
     private _plane: objects.Plane;
+    private _island: objects.Island;
 
     // Public Properties
 
@@ -53,6 +54,7 @@ module scenes {
 
       this._ocean = new objects.Ocean(this.assetManager);
       this._plane = new objects.Plane(this.assetManager);
+      this._island = new objects.Island(this.assetManager);
 
       this.Main();
     }
@@ -60,6 +62,7 @@ module scenes {
     public Update(): void {
       this._ocean.Update();
       this._plane.Update();
+      this._island.Update();
     }
 
     public Main(): void {
@@ -67,6 +70,7 @@ module scenes {
       this.addChild(this._playButton);
       this.addChild(this._backButton);
       this.addChild(this._nextButton);
+      this.addChild(this._island);
       this.addChild(this._plane);
 
       this._playButton.on("click", this._playButtonClick);
