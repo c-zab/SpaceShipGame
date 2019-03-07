@@ -16,7 +16,8 @@
     { id: "playButton", src: "/Assets/images/PlayButton.png" },
     { id: "backButton", src: "/Assets/images/BackButton.png" },
     { id: "nextButton", src: "/Assets/images/NextButton.png" },
-    { id: "restartButton", src: "/Assets/images/QuitButton.png" }
+    { id: "restartButton", src: "/Assets/images/QuitButton.png" },
+    { id: "ocean", src: "/Assets/images/ocean.gif" }
   ];
 
   function Init(): void {

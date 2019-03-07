@@ -5,6 +5,8 @@ module scenes {
     private _nextButton: objects.Button;
     private _backButton: objects.Button;
 
+    private _ocean: objects.Ocean;
+
     // Public Properties
 
     // Constructor
@@ -48,12 +50,17 @@ module scenes {
         340
       );
 
+      this._ocean = new objects.Ocean(this.assetManager);
+
       this.Main();
     }
 
-    public Update(): void {}
+    public Update(): void {
+      this._ocean.Update();
+    }
 
     public Main(): void {
+      this.addChild(this._ocean);
       this.addChild(this._playButton);
       this.addChild(this._backButton);
       this.addChild(this._nextButton);
