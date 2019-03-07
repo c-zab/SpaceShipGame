@@ -20,12 +20,13 @@
     { id: "ocean", src: "/Assets/images/ocean.gif" },
     { id: "plane", src: "/Assets/images/plane.png" },
     { id: "island", src: "/Assets/images/island.png" },
-    { id: "cloud", src: "/Assets/images/cloud.png" }
+    { id: "cloud", src: "/Assets/images/cloud.png" },
+    { id: "engine", src: "/Assets/audio/play_music.ogg" },
+    { id: "explosion", src: "/Assets/audio/explode.wav" }
   ];
 
   function Init(): void {
     console.log("Initialization start...");
-
     assetsManager = new createjs.LoadQueue();
     assetsManager.installPlugin(createjs.Sound);
     assetsManager.loadManifest(assetsManifest);

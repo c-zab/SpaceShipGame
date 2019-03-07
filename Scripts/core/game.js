@@ -16,7 +16,9 @@
         { id: "ocean", src: "/Assets/images/ocean.gif" },
         { id: "plane", src: "/Assets/images/plane.png" },
         { id: "island", src: "/Assets/images/island.png" },
-        { id: "cloud", src: "/Assets/images/cloud.png" }
+        { id: "cloud", src: "/Assets/images/cloud.png" },
+        { id: "engine", src: "/Assets/audio/play_music.ogg" },
+        { id: "explosion", src: "/Assets/audio/explode.wav" }
     ];
     function Init() {
         console.log("Initialization start...");

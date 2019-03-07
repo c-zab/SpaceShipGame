@@ -11,11 +11,18 @@ module scenes {
     private _clouds: objects.Cloud[];
     private _cloudnum: number;
 
+    private backgroundMusic: createjs.AbstractSoundInstance;
+
     // Public Properties
 
     // Constructor
     constructor(assetManager: createjs.LoadQueue) {
       super(assetManager);
+
+      this.backgroundMusic = createjs.Sound.play("engine");
+      this.backgroundMusic.loop = -1; // Looping forever
+      this.backgroundMusic.volume = 0.3;
+
       this.Start();
     }
 

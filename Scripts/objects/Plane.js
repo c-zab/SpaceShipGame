@@ -27,6 +27,9 @@ var objects;
         // Public Methods
         Plane.prototype.Start = function () {
             this.y = 430;
+            var engineSound = createjs.Sound.play("engine");
+            engineSound.loop = -1;
+            engineSound.volume = 0.3;
         };
         Plane.prototype.Update = function () {
             this.Move();

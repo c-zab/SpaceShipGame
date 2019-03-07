@@ -1,5 +1,6 @@
 module managers {
   export class Collision {
+    private static explodeSFX: createjs.AbstractSoundInstance;
     public static Check(
       object1: objects.GameObject,
       object2: objects.GameObject
@@ -14,8 +15,17 @@ module managers {
         object1.halfHeight + object2.halfHeight
       ) {
         if (!object2.isColliding) {
-          console.log("collision with " + object2.name);
           object2.isColliding = true;
+          switch (object2.name) {
+            case "island":
+              this.explodeSFX = createjs.Sound.play("explosion");
+              this.explodeSFX.volume = 0.1;
+              break;
+            case "cloud":
+              this.explodeSFX = createjs.Sound.play("explosion");
+              this.explodeSFX.volume = 0.1;
+              break;
+          }
         }
       } else {
         object2.isColliding = false;
