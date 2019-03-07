@@ -7,6 +7,7 @@
 /// <reference path="../objects/ocean.ts" />
 /// <reference path="../objects/island.ts" />
 /// <reference path="../objects/Plane.ts" />
+/// <reference path="../objects/cloud.ts" />
 /// <reference path="../scenes/start.ts" />
 /// <reference path="../scenes/play.ts" />
 /// <reference path="../scenes/over.ts" />

@@ -40,20 +40,35 @@ var scenes;
             this._ocean = new objects.Ocean(this.assetManager);
             this._plane = new objects.Plane(this.assetManager);
             this._island = new objects.Island(this.assetManager);
+            this._cloudnum = 3;
+            // create the cloud array
+            this._clouds = new Array();
+            // add clouds to the array
+            for (var count = 0; count < this._cloudnum; count++) {
+                this._clouds[count] = new objects.Cloud(this.assetManager);
+            }
             this.Main();
         };
         PlayScene.prototype.Update = function () {
             this._ocean.Update();
             this._plane.Update();
             this._island.Update();
+            this._clouds.forEach(function (cloud) {
+                cloud.Update();
+            });
         };
         PlayScene.prototype.Main = function () {
+            var _this = this;
             this.addChild(this._ocean);
             this.addChild(this._playButton);
             this.addChild(this._backButton);
             this.addChild(this._nextButton);
             this.addChild(this._island);
             this.addChild(this._plane);
+            // add clouds to the scene
+            this._clouds.forEach(function (cloud) {
+                _this.addChild(cloud);
+            });
             this._playButton.on("click", this._playButtonClick);
             this._backButton.on("click", this._backButtonClick);
             this._nextButton.on("click", this._nextButtonClick);
