@@ -4,6 +4,7 @@
 /// <reference path="../objects/Label.ts" />
 /// <reference path="../objects/Button.ts" />
 /// <reference path="../objects/Scene.ts" />
+/// <reference path="../objects/ocean.ts" />
 
 /// <reference path="../math/vec2.ts"/>
 /// <reference path="../managers/collision.ts"/>
