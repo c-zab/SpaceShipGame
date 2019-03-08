@@ -15,21 +15,16 @@ var objects;
 (function (objects) {
     var Plane = /** @class */ (function (_super) {
         __extends(Plane, _super);
-        // Private Instance Variable
-        // Public Properties
         // Constructor
         function Plane(assetManager) {
             var _this = _super.call(this, assetManager, "plane") || this;
             _this.Start();
             return _this;
         }
-        // Private Methods
         // Public Methods
         Plane.prototype.Start = function () {
+            this.isDead = false;
             this.y = 430;
-            var engineSound = createjs.Sound.play("engine");
-            engineSound.loop = -1;
-            engineSound.volume = 0.3;
         };
         Plane.prototype.Update = function () {
             this.Move();

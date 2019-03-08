@@ -7,6 +7,7 @@
 /// <reference path="../objects/ocean.ts" />
 
 /// <reference path="../math/vec2.ts"/>
+/// <reference path="../managers/scoreboard.ts"/>
 /// <reference path="../managers/collision.ts"/>
 
 /// <reference path="../objects/gameobject.ts" />

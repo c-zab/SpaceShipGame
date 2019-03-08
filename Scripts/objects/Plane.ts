@@ -1,8 +1,7 @@
 module objects {
   export class Plane extends objects.GameObject {
-    // Private Instance Variable
-
-    // Public Properties
+    // Variables
+    public isDead: boolean;
 
     // Constructor
     constructor(assetManager: createjs.LoadQueue) {
@@ -10,16 +9,10 @@ module objects {
       this.Start();
     }
 
-    // Private Methods
-
     // Public Methods
     public Start(): void {
+      this.isDead = false;
       this.y = 430;
-      let engineSound: createjs.AbstractSoundInstance = createjs.Sound.play(
-        "engine"
-      );
-      engineSound.loop = -1;
-      engineSound.volume = 0.3;
     }
     public Update(): void {
       this.Move();

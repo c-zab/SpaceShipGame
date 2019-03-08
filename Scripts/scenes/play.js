@@ -50,6 +50,8 @@ var scenes;
             for (var count = 0; count < this._cloudnum; count++) {
                 this._clouds[count] = new objects.Cloud(this.assetManager);
             }
+            this._scoreboard = new managers.ScoreBoard();
+            objects.Game.scoreBoardManager = this._scoreboard;
             this.Main();
         };
         PlayScene.prototype.Update = function () {
@@ -64,6 +66,11 @@ var scenes;
                 // check collision between pland and the current cloud
                 managers.Collision.Check(_this._plane, cloud);
             });
+            if (this._scoreboard.Lives <= 0) {
+                this._plane.isDead = true;
+                this.backgroundMusic.paused = true;
+                objects.Game.currentScene = config.Scene.OVER;
+            }
         };
         PlayScene.prototype.Main = function () {
             var _this = this;
@@ -77,6 +84,8 @@ var scenes;
             this._clouds.forEach(function (cloud) {
                 _this.addChild(cloud);
             });
+            this.addChild(this._scoreboard.LivesLabel);
+            this.addChild(this._scoreboard.ScoreLabel);
             this._playButton.on("click", this._playButtonClick);
             this._backButton.on("click", this._backButtonClick);
             this._nextButton.on("click", this._nextButtonClick);

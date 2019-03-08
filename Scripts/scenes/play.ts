@@ -11,6 +11,8 @@ module scenes {
     private _clouds: objects.Cloud[];
     private _cloudnum: number;
 
+    private _scoreboard: managers.ScoreBoard;
+
     private backgroundMusic: createjs.AbstractSoundInstance;
 
     // Public Properties
@@ -73,6 +75,9 @@ module scenes {
         this._clouds[count] = new objects.Cloud(this.assetManager);
       }
 
+      this._scoreboard = new managers.ScoreBoard();
+      objects.Game.scoreBoardManager = this._scoreboard;
+
       this.Main();
     }
 
@@ -89,6 +94,11 @@ module scenes {
         // check collision between pland and the current cloud
         managers.Collision.Check(this._plane, cloud);
       });
+      if (this._scoreboard.Lives <= 0) {
+        this._plane.isDead = true;
+        this.backgroundMusic.paused = true;
+        objects.Game.currentScene = config.Scene.OVER;
+      }
     }
 
     public Main(): void {
@@ -103,6 +113,9 @@ module scenes {
       this._clouds.forEach(cloud => {
         this.addChild(cloud);
       });
+
+      this.addChild(this._scoreboard.LivesLabel);
+      this.addChild(this._scoreboard.ScoreLabel);
 
       this._playButton.on("click", this._playButtonClick);
       this._backButton.on("click", this._backButtonClick);
