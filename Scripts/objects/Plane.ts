@@ -12,6 +12,7 @@ module objects {
     // Public Methods
     public Start(): void {
       this.isDead = false;
+      this.x = 320;
       this.y = 430;
     }
     public Update(): void {
@@ -21,7 +22,13 @@ module objects {
 
     public Reset() {}
     public Move() {
-      this.x = objects.Game.stage.mouseX;
+      // this.x = objects.Game.stage.mouseX;
+      if (objects.Game.keyboardManager.moveLeft) {
+        this.x -= 5;
+      }
+      if (objects.Game.keyboardManager.moveRight) {
+        this.x += 5;
+      }
     }
 
     public CheckBounds() {

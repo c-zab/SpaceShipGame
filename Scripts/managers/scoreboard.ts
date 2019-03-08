@@ -74,7 +74,7 @@ module managers {
       );
 
       this.Score = 0;
-      this.Lives = 5;
+      this.Lives = 1;
       this.HighScore = 0;
     }
 

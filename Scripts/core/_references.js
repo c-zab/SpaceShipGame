@@ -1,4 +1,5 @@
 /// <reference path="../config/scene.ts" />
+/// <reference path="../config/keys.ts" />
 /// <reference path="../objects/game.ts" />
 /// <reference path="../objects/Label.ts" />
 /// <reference path="../objects/Button.ts" />
@@ -7,6 +8,7 @@
 /// <reference path="../math/vec2.ts"/>
 /// <reference path="../managers/scoreboard.ts"/>
 /// <reference path="../managers/collision.ts"/>
+/// <reference path="../managers/keyboard.ts"/>
 /// <reference path="../objects/gameobject.ts" />
 /// <reference path="../objects/ocean.ts" />
 /// <reference path="../objects/island.ts" />

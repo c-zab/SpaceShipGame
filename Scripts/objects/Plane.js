@@ -24,6 +24,7 @@ var objects;
         // Public Methods
         Plane.prototype.Start = function () {
             this.isDead = false;
+            this.x = 320;
             this.y = 430;
         };
         Plane.prototype.Update = function () {
@@ -32,7 +33,13 @@ var objects;
         };
         Plane.prototype.Reset = function () { };
         Plane.prototype.Move = function () {
-            this.x = objects.Game.stage.mouseX;
+            // this.x = objects.Game.stage.mouseX;
+            if (objects.Game.keyboardManager.moveLeft) {
+                this.x -= 5;
+            }
+            if (objects.Game.keyboardManager.moveRight) {
+                this.x += 5;
+            }
         };
         Plane.prototype.CheckBounds = function () {
             // Check right boundary

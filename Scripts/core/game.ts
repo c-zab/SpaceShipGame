@@ -11,6 +11,8 @@
   let currentScene: objects.Scene;
   let currentState: number;
 
+  let keyboardManager: managers.Keyboard;
+
   assetsManifest = [
     { id: "startButton", src: "/Assets/images/button.png" },
     { id: "playButton", src: "/Assets/images/PlayButton.png" },
@@ -22,7 +24,8 @@
     { id: "island", src: "/Assets/images/island.png" },
     { id: "cloud", src: "/Assets/images/cloud.png" },
     { id: "engine", src: "/Assets/audio/play_music.ogg" },
-    { id: "explosion", src: "/Assets/audio/explode.wav" }
+    { id: "explosion", src: "/Assets/audio/explode.wav" },
+    { id: "shoot", src: "/Assets/audio/shoot.wav" }
   ];
 
   function Init(): void {
@@ -45,12 +48,14 @@
     objects.Game.stage = stage;
     objects.Game.currentScene = config.Scene.START;
     currentState = config.Scene.START;
+
+    keyboardManager = new managers.Keyboard();
+    objects.Game.keyboardManager = keyboardManager;
     Main();
   }
 
   function Update(): void {
     if (currentState != objects.Game.currentScene) {
-      console.log(objects.Game.currentScene);
       Main();
     }
 
